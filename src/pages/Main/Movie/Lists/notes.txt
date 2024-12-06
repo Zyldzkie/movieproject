@@ -1,0 +1,9 @@
+--- apply usecontext for access token (case sensitive!!)
+--- attach access token to api request
+--- conditional rendering, edit or create based on prev
+--- documentation of TMDB
+--- register own tmdb api (line 19 form.jsx)
+--- add page buttons for search movie if madami
+--- handson -> catch validation value
+--- show errors (ex. failed to save) replace yung mga catch error
+--- usecallback, pageparam

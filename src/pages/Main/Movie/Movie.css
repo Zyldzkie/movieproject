@@ -1,0 +1,136 @@
+.movie-layout {
+  display: flex;
+  flex-direction: row;
+  width: 120%;
+  min-height: 100vh; 
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: visible; 
+  align-items: flex-start; 
+  margin-top: 20px;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; 
+  padding-right: 20px;
+  overflow: visible; 
+  margin-top: 20px; 
+}
+
+.first-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-top: 100px;
+}
+
+.featured-movie-card {
+  background-color: #9675CE;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  width: 70%; 
+  margin-right: 20px;
+  box-sizing: border-box; 
+  overflow: hidden; 
+}
+
+.search-movies-card {
+  background-color: #9675CE;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  width: 30%; 
+  box-sizing: border-box; 
+  overflow: hidden; 
+}
+
+.second-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  overflow-y: auto; 
+}
+
+.movie-list-card {
+  background-color: #9675CE;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  width: 70%; 
+  margin-right: 20px;
+  box-sizing: border-box; 
+  overflow: hidden; 
+}
+
+
+.favorites-container {
+  background-color: #9675CE;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  width: 30%; 
+  box-sizing: border-box; 
+  overflow: hidden; 
+}
+
+.favorites-container h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.favorites-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.favorites-container li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.favorite-movie-poster {
+  width: 50px;
+  height: auto;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .movie-layout {
+    flex-direction: column; 
+  }
+
+  .left-side {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .first-row {
+    flex-direction: column; 
+  }
+
+  .featured-movie-card,
+  .search-movies-card {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 20px; 
+  }
+
+  .second-row {
+    flex-direction: column;
+  }
+
+  .movie-list-card,
+  .favorites-container {
+    width: 100%;
+    margin-right: 0;
+    height: auto;
+  }
+}

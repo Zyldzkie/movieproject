@@ -1,0 +1,101 @@
+.register-page {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffe3e3;
+  padding: 20px;
+}
+
+.register-form-container {
+  width: 100%;
+  max-width: 400px;  
+  padding: 50px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.register-form {
+  width: 120%;
+}
+
+.register-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.register-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.register-group label {
+  min-width: 150px; 
+  font-weight: bold;
+  margin-right: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.register-group input {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.register-password-container {
+  display: flex;
+  align-items: center;
+  width: 100%; 
+}
+
+.register-password-container input {
+  flex: 1; 
+  margin-right: 10px; 
+}
+
+.register-show-password {
+  background: none;
+  border: none;
+  color: #fa8072;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.register-submit-container {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.register-submit-btn {
+  background-color: #fa8072;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.register-submit-btn:hover {
+  background-color: #ff6347;
+}

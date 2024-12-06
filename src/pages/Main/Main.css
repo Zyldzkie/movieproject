@@ -1,0 +1,63 @@
+body {
+  background-color: #F5F5F5; /* sample muna */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh; 
+  overflow: auto; 
+}
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.navigation {
+  background-color: #b9b9b9;
+  width: 220px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+}
+
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation ul li {
+  padding: 15px 20px;
+}
+
+.navigation ul li.active,
+.navigation ul li:hover {
+  background: #ccc;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.navigation ul li.logout {
+  cursor: pointer;
+  font-weight: bold;
+  color: red;
+}
+
+.navigation ul li a:hover {
+  color: #3498db;
+}
+.content-layout {
+  display: flex;
+  margin-left: 10px; 
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.main-content {
+  flex-grow: 1;
+  margin-right: 100px;
+}

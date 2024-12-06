@@ -1,0 +1,53 @@
+.search-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+.searched-movie {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.searched-movie p {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.searched-movie p:hover {
+  background-color: lightblue;
+}
+
+.poster-image {
+  width: 150px;
+  height: auto;
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
