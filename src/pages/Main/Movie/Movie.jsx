@@ -2,22 +2,75 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Movie.css';
 import { Outlet } from 'react-router-dom';
+import axios from 'axios';
+
 
 const Movie = () => {
   const [featuredMovie, setFeaturedMovie] = useState(null);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+  const apiKey = process.env.REACT_APP_TMDB_API_KEY;
+  const imageBaseUrl = "https://image.tmdb.org/t/p/original"; 
+  const [localMovies, setLocalMovies] = useState([]);
+  const [movieImages, setMovieImages] = useState({});
+
+
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${apiKey}`
+    }
+  };
+  
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const response = await fetch('http://localhost/movieproject-api/movies');
+        const data = await response.json();
+        setLocalMovies(data);
+        
+        const featured = data.find(movie => movie.isFeatured);
+        if (featured) {
+          setFeaturedMovie({
+            title: featured.title,
+            overview: featured.overview,
+            release_date: featured.releaseDate,
+            vote_average: featured.voteAverage,
+            poster_path: featured.posterPath,
+          });
+        }
+        
+        data.forEach(movie => {
+          if (movie.tmdbId) {
+            fetchMovieImages(movie.tmdbId);
+          }
+        });
+      } catch (error) {
+        console.error('Error fetching local movies:', error);
+      }
+    };
+
+    const fetchMovieImages = async (tmdbId) => {
+      try {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}/images`, options);
+        const data = await response.json();
+        setMovieImages(prev => ({
+          ...prev,
+          [tmdbId]: data
+        }));
+      } catch (err) {
+        console.error(`Error fetching images for movie ${tmdbId}:`, err);
+      }
+    };
+
+    fetchMovies();
+  }, []);
+
+  console.log(apiKey); 
 
   useEffect(() => {
-    setFeaturedMovie({
-      title: "Inception",
-      overview: "A mind-bending thriller that explores the concept of dreams within dreams.",
-      release_date: "2010-07-16",
-      vote_average: 8.8,
-      poster_path: "https://image.tmdb.org/t/p/original/r6Prq5XYB95DOZYYLRzITrOj3Te.jpg",
-    });
-
     setFavoriteMovies([
       { id: 1, title: "The Dark Knight", poster_path: "https://image.tmdb.org/t/p/original/cz8MjCVSPOq7SKtTRp1APeO6zWh.jpg" },
       { id: 2, title: "The Matrix", poster_path: "https://image.tmdb.org/t/p/original/qxHcqkbjvjaD4rTp0Y1ZZCwIj6i.jpg" },
@@ -48,7 +101,7 @@ const Movie = () => {
                 </div>
               </div>
             ) : (
-              <p>Loading featured movie...</p>
+              <p>No featured movie available</p>
             )}
             <button className="edit-button" onClick={handleEditClick}>
               Edit
@@ -70,7 +123,18 @@ const Movie = () => {
         <div className="second-row">
           <div className="movie-list-card">
             <h3>Movie List</h3>
-            <Outlet /> 
+            {localMovies.map(movie => (
+              <div key={movie.id}>
+                <h4>{movie.title}</h4>
+                {movieImages[movie.tmdbId]?.posters?.length > 0 && (
+                  <img 
+                    src={`${imageBaseUrl}${movieImages[movie.tmdbId].posters[0].file_path}`}
+                    alt={movie.title}
+                    className="movie-poster"
+                  />
+                )}
+              </div>
+            ))}
           </div>
 
           <div className="favorites-container">
@@ -80,7 +144,7 @@ const Movie = () => {
                 {favoriteMovies.map((movie) => (
                   <li key={movie.id}>
                     <img
-                      src={movie.poster_path}
+                      src={`${imageBaseUrl}${movie.poster_path}`}
                       alt={movie.title}
                       className="favorite-movie-poster"
                     />
