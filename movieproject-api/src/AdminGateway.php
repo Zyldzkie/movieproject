@@ -33,11 +33,11 @@ class AdminGateway
 
     public function login(string $email, string $password)
     {
-        $sql = "SELECT * FROM users WHERE email = :email AND password = :password AND role = :role";
+        $sql = "SELECT * FROM users WHERE email = :email AND password = :password";
         $res = $this->conn->prepare($sql);
         $res->bindValue(":email", $email, PDO::PARAM_STR);
         $res->bindValue(":password", md5($password), PDO::PARAM_STR);
-        $res->bindValue(":role", 'admin', PDO::PARAM_STR);
+        //$res->bindValue(":role", 'admin', PDO::PARAM_STR);
 
         $res->execute();
         $data = $res->fetch(PDO::FETCH_ASSOC);
