@@ -92,6 +92,7 @@ const Movie = () => {
                   src={featuredMovie.poster_path}
                   alt={featuredMovie.title}
                   className="featured-movie-poster"
+                  style={{ maxWidth: '200px' }}
                 />
                 <div className="movie-details">
                   <h2>{featuredMovie.title}</h2>
@@ -123,18 +124,21 @@ const Movie = () => {
         <div className="second-row">
           <div className="movie-list-card">
             <h3>Movie List</h3>
-            {localMovies.map(movie => (
-              <div key={movie.id}>
-                <h4>{movie.title}</h4>
-                {movieImages[movie.tmdbId]?.posters?.length > 0 && (
-                  <img 
-                    src={`${imageBaseUrl}${movieImages[movie.tmdbId].posters[0].file_path}`}
-                    alt={movie.title}
-                    className="movie-poster"
-                  />
-                )}
-              </div>
-            ))}
+            <div className="movie-grid">
+              {localMovies.map(movie => (
+                <div key={movie.id} className="movie-item">
+                  {movieImages[movie.tmdbId]?.posters?.length > 0 && (
+                    <img 
+                      src={`${imageBaseUrl}${movieImages[movie.tmdbId].posters[0].file_path}`}
+                      alt={movie.title}
+                      className="movie-poster"
+                      style={{ maxWidth: '150px' }}
+                    />
+                  )}
+                  <h4>{movie.title}</h4>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="favorites-container">
