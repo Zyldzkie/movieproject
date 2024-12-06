@@ -35,7 +35,8 @@
   width: 70%; 
   margin-right: 20px;
   box-sizing: border-box; 
-  overflow: hidden; 
+  height: fit-content;
+  min-height: 300px;
 }
 
 .search-movies-card {
@@ -67,7 +68,6 @@
   overflow: hidden; 
 }
 
-
 .favorites-container {
   background-color: #fff;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -91,15 +91,52 @@
 
 .favorites-container li {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  background-color: rgba(150, 117, 206, 0.1);
+  border-radius: 8px;
+  padding: 15px;
   margin-bottom: 15px;
+  transition: transform 0.2s ease;
+}
+
+.favorites-container li:hover {
+  transform: translateY(-2px);
+}
+
+.favorite-movie-header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.favorite-movie-info {
+  margin-left: 15px;
+  flex-grow: 1;
+}
+
+.favorite-movie-title {
+  font-weight: bold;
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.favorite-movie-description {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #666;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .favorite-movie-poster {
-  width: 50px;
+  width: 80px;
   height: auto;
   border-radius: 5px;
-  margin-right: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {

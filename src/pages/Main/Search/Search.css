@@ -35,7 +35,8 @@
   width: 70%; 
   margin-right: 20px;
   box-sizing: border-box; 
-  overflow: hidden; 
+  height: fit-content;    /* Changed to fit-content */
+  min-height: 300px;      /* Added minimum height */
 }
 
 .search-movies-card {
@@ -141,4 +142,14 @@
     margin-right: 0;
     height: auto;
   }
+}
+
+.movie-details {
+  height: fit-content;    /* Changed to fit-content */
+  word-wrap: break-word;  /* Keep text from overflowing horizontally */
+}
+
+.movie-details p {
+  margin: 10px 0;
+  white-space: pre-wrap;  /* Preserve line breaks and wrap text */
 }
