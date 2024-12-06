@@ -18,7 +18,7 @@
 
 .movie-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 movies per row */
+  grid-template-columns: repeat(4, 1fr); /* Changed from 3 to 4 movies per row */
   gap: 20px;
   padding: 0 20px;
 }
@@ -106,6 +106,12 @@
 
 .delete-button:hover {
   background-color: #c0392b;
+}
+
+@media (max-width: 1024px) {
+  .movie-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 movies per row on medium screens */
+  }
 }
 
 @media (max-width: 768px) {

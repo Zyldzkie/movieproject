@@ -3,11 +3,11 @@
   flex-direction: row;
   width: 120%;
   min-height: 100vh; 
-  padding: 20px;
+  padding: 0;
   box-sizing: border-box;
   overflow: visible; 
   align-items: flex-start; 
-  margin-top: 20px;
+  margin: 0;
 }
 
 .left-side {
@@ -24,7 +24,7 @@
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 5px;
-  padding-top: 100px;
+  padding-top: 10px;
 }
 
 .featured-movie-card {
@@ -47,6 +47,14 @@
   box-sizing: border-box; 
   overflow: hidden; 
 }
+
+.search-movies-card input{
+    width: 90%;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
 
 .second-row {
   display: flex;
