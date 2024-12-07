@@ -27,7 +27,6 @@ function Main() {
         <ul>
           <li onClick={() => handleNavigation('/Main/Movies')}>Home</li> {/* Replaced href with navigate */}
           <li onClick={() => handleNavigation('/main/favorites')}>Favorites</li> {/* Replaced href with navigate */}
-          <li onClick={() => handleNavigation('/main/search')}>Search</li> {/* Replaced href with navigate */}
           <li onClick={() => handleNavigation('/Main/settings')}>Settings</li> {/* Replaced href with navigate */}
           <li className="logout" onClick={handleLogout}>Logout</li>
         </ul>

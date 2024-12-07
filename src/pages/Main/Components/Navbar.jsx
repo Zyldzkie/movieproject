@@ -12,7 +12,6 @@ const Navbar = () => {
         <ul>
           <li><Link to="/main/movies">Home</Link></li>
           <li><Link to="/main/favorites">Favorites</Link></li>
-          <li><Link to="/main/search">Search</Link></li>
           <li><Link to="/main/settings">Settings</Link></li>
           <li><a onClick={() => localStorage.removeItem('accessToken')}>Logout</a></li>
         </ul>

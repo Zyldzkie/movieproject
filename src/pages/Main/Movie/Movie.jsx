@@ -98,7 +98,9 @@ const Movie = () => {
                   <h2>{featuredMovie.title}</h2>
                   <p><strong>Release Date:</strong> {featuredMovie.release_date}</p>
                   <p><strong>Rating:</strong> {featuredMovie.vote_average}</p>
-                  <p><strong>Overview:</strong> {featuredMovie.overview}</p>
+                  <div className="overview-container">
+                    <p><strong>Overview:</strong> {featuredMovie.overview}</p>
+                  </div>
                 </div>
               </div>
             ) : (

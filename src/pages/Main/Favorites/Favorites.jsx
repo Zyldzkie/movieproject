@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Favorites.css';
 import { Outlet } from 'react-router-dom';
 
-const Favorites = () => {  // Changed from Movie to Favorites
+const Favorites = () => {
   const [featuredMovie, setFeaturedMovie] = useState(null);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -19,8 +19,18 @@ const Favorites = () => {  // Changed from Movie to Favorites
     });
 
     setFavoriteMovies([
-      { id: 1, title: "The Dark Knight", poster_path: "https://image.tmdb.org/t/p/original/cz8MjCVSPOq7SKtTRp1APeO6zWh.jpg" },
-      { id: 2, title: "The Matrix", poster_path: "https://image.tmdb.org/t/p/original/qxHcqkbjvjaD4rTp0Y1ZZCwIj6i.jpg" },
+      { 
+        id: 1, 
+        title: "The Dark Knight", 
+        poster_path: "https://image.tmdb.org/t/p/original/cz8MjCVSPOq7SKtTRp1APeO6zWh.jpg",
+        description: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice."
+      },
+      { 
+        id: 2, 
+        title: "The Matrix", 
+        poster_path: "https://image.tmdb.org/t/p/original/qxHcqkbjvjaD4rTp0Y1ZZCwIj6i.jpg",
+        description: "A computer programmer discovers that reality as he knows it is a simulation created by machines, and joins a rebellion to break free from the system."
+      },
     ]);
   }, []);
 
@@ -79,12 +89,17 @@ const Favorites = () => {  // Changed from Movie to Favorites
               <ul>
                 {favoriteMovies.map((movie) => (
                   <li key={movie.id}>
-                    <img
-                      src={movie.poster_path}
-                      alt={movie.title}
-                      className="favorite-movie-poster"
-                    />
-                    <p>{movie.title}</p>
+                    <div className="favorite-movie-header">
+                      <img
+                        src={movie.poster_path}
+                        alt={movie.title}
+                        className="favorite-movie-poster"
+                      />
+                      <div className="favorite-movie-info">
+                        <p className="favorite-movie-title">{movie.title}</p>
+                        <p className="favorite-movie-description">{movie.description}</p>
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ul>
